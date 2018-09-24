@@ -1,0 +1,38 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "jugeID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "challenger1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "challenger2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "winner",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "campagne",
+            "otherEntityName": "campagne",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180922104912",
+    "entityTableName": "answer",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

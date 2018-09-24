@@ -1,0 +1,31 @@
+{
+    "name": "Campagne",
+    "fields": [
+        {
+            "fieldName": "campagneName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "campagneDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "challengersLocation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180922104911",
+    "entityTableName": "campagne",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

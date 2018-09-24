@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Answer.
+    -->
+    <changeSet id="20180922104912-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="campagne_id"
+                                 baseTableName="answer"
+                                 constraintName="fk_answer_campagne_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campagne"/>
+
+    </changeSet>
+</databaseChangeLog>

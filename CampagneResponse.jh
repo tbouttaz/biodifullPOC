@@ -1,0 +1,26 @@
+entity Campagne {
+	campagneName String
+    campagneDescription String
+    formURL String
+    challengersLocation String
+}
+
+entity Answer {
+	jugeID String
+    challenger1 String
+    challenger2 String
+    winner String
+}
+
+relationship ManyToOne {
+	Answer{campagne} to Campagne
+}
+
+// Set pagination options
+paginate Campagne  with infinite-scroll
+paginate Answer with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
