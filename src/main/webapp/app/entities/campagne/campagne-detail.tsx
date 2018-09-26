@@ -37,9 +37,13 @@ export class CampagneDetail extends React.Component<ICampagneDetailProps> {
             </dt>
             <dd>{campagneEntity.campagneDescription}</dd>
             <dt>
-              <span id="formURL">Form URL</span>
+              <span id="formURL">Form</span>
             </dt>
-            <dd>{campagneEntity.formURL}</dd>
+            <dd>
+              <iframe src={campagneEntity.formURL} width="700" height="520" frameBorder="0" marginHeight="0" marginWidth="0">
+                Loading...
+              </iframe>
+            </dd>
             <dt>
               <span id="challengersLocation">Challengers Location</span>
             </dt>
