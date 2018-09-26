@@ -40,7 +40,7 @@ export class CampagneDetail extends React.Component<ICampagneDetailProps> {
               <span id="formURL">Form</span>
             </dt>
             <dd>
-              <iframe src={campagneEntity.formURL} width="700" height="520" frameBorder="0" marginHeight="0" marginWidth="0">
+              <iframe src={campagneEntity.formURL} width="700" height="520">
                 Loading...
               </iframe>
             </dd>
