@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Row, Col, Alert } from 'reactstrap';
 
+import { getEntities, reset } from '../../entities/campagne/campagne.reducer';
+
 import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 
@@ -16,13 +18,21 @@ export class Home extends React.Component<IHomeProp> {
     this.props.getSession();
   }
 
+  componentWillMount() {
+    this.getEntities();
+  }
+
+  getEntities = () => {
+    this.props.getEntities(0, 20, 'id,asc');
+  };
+
   render() {
-    const { account } = this.props;
+    const { campagneList, account } = this.props;
     return (
       <Row>
         <Col md="9">
-          <h2>Welcome, Java Hipster!</h2>
-          <p className="lead">This is your homepage</p>
+          <h2>Welcome to the Biodifull Project!</h2>
+          <p className="lead">Presentation of the Biodifull Project</p>
           {account && account.login ? (
             <div>
               <Alert color="success">You are logged in as user {account.login}.</Alert>
@@ -48,39 +58,22 @@ export class Home extends React.Component<IHomeProp> {
               </Alert>
             </div>
           )}
-          <p>If you have any question on JHipster:</p>
-
+          <p>List of open campains:</p>
           <ul>
-            <li>
-              <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-                JHipster homepage
-              </a>
-            </li>
-            <li>
-              <a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-                JHipster on Stack Overflow
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-                JHipster bug tracker
-              </a>
-            </li>
-            <li>
-              <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-                JHipster public chat room
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/java_hipster" target="_blank" rel="noopener noreferrer">
-                follow @java_hipster on Twitter
-              </a>
-            </li>
+            {/* TODO - this doesn't work - connect() not initialising connection to Campagne in Redux? */}
+            {campagneList.map((campagne, i) => (
+              <li>
+                <a href={`entity/campagne/${campagne.id}`} target="_blank" rel="noopener noreferrer">
+                  {campagne.campagneName}
+                </a>
+              </li>
+              // <p>listItem {campagne.id}</p>
+            ))}
           </ul>
 
           <p>
-            If you like JHipster, do not forget to give us a star on{' '}
-            <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
+            If you like Biodifull, do not forget to give us a star on{' '}
+            <a href="https://github.com/tbouttaz/biodifullPOC" target="_blank" rel="noopener noreferrer">
               Github
             </a>
             !
@@ -96,10 +89,11 @@ export class Home extends React.Component<IHomeProp> {
 
 const mapStateToProps = storeState => ({
   account: storeState.authentication.account,
-  isAuthenticated: storeState.authentication.isAuthenticated
+  isAuthenticated: storeState.authentication.isAuthenticated,
+  campagneList: storeState.campagne.entities
 });
 
-const mapDispatchToProps = { getSession };
+const mapDispatchToProps = { getEntities, getSession };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
