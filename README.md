@@ -1,6 +1,9 @@
 # biodifullPOC
 This application was generated using JHipster 5.3.4, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.3.4](https://www.jhipster.tech/documentation-archive/v5.3.4).
 
+## Database
+To find the DB URL on Heroku, run `$ heroku config | grep CLEARDB_DATABASE_URL `
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
