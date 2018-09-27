@@ -1,7 +1,7 @@
 apply plugin: 'com.heroku.sdk.heroku-gradle'
 
 heroku {
-  appName = "biodifull-poc"
+  appName = "biodifull-poc-2"
 }
 
 gradle.taskGraph.whenReady {taskGraph ->
